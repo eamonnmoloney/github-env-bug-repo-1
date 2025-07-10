@@ -1,0 +1,9 @@
+on:
+  workflow_dispatch:
+  workflow_call:
+
+jobs:
+  level-1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "level-1"
