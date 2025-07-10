@@ -4,10 +4,10 @@ on:
 jobs:
   level-2-on-repo-1:
     runs-on: ubuntu-latest
+    outputs:
+      TEST-1: ${{ env.TEST1 }}
     steps:
       - name: level-2 on repo-1
-        outputs:
-          TEST-1: ${{ env.TEST1 }}
         run: |
           echo "level-2 on repo-1"
           echo "TEST1=TEST1" | tee -a $GITHUB_ENV
