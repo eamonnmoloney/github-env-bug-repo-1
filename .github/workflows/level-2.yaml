@@ -5,4 +5,21 @@ jobs:
   level-2-on-repo-1:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "level-2"
+      - name: level-2 on repo-1
+        outputs:
+          TEST-1: ${{ env.TEST1 }}
+        run: |
+          echo "level-2 on repo-1"
+          echo "TEST1=TEST1" | tee -a $GITHUB_ENV
+
+
+  level-2-on-repo-1-second-job:
+    runs-on: ubuntu-latest
+    needs: level-2-on-repo-1
+    env:
+      TEST1: ${{ needs.level-2-on-repo-1.outputs.TEST-1 }}
+    steps:
+      - name: level-2 on repo-1 second job
+        run: |
+          echo "level-2 on repo-1 second job"
+          echo "$TEST1"
