@@ -10,7 +10,7 @@ jobs:
       - name: level-2 on repo-1
         run: |
           echo "level-2 on repo-1"
-          echo "TEST1=TEST1" | tee -a $GITHUB_ENV
+          echo "TEST1=TEST 1 values" | tee -a $GITHUB_ENV
 
 
   level-2-on-repo-1-second-job:
@@ -22,4 +22,4 @@ jobs:
       - name: level-2 on repo-1 second job
         run: |
           echo "level-2 on repo-1 second job"
-          echo "$TEST1"
+          echo "value of TEST1 is $TEST1"
