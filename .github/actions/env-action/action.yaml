@@ -2,5 +2,6 @@ runs:
   using: "composite"
   steps:
   - name: env-action
+    shell: bash
     run: |
         echo "TEST2=TEST 2 values" | tee -a $GITHUB_ENV
