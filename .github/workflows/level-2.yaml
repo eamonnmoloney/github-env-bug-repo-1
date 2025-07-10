@@ -11,6 +11,8 @@ jobs:
         run: |
           echo "level-2 on repo-1"
           echo "TEST1=TEST 1 values" | tee -a $GITHUB_ENV
+      - name: env-action
+        uses: ./.github/actions/env-action
 
 
   level-2-on-repo-1-second-job:
@@ -18,8 +20,12 @@ jobs:
     needs: level-2-on-repo-1
     env:
       TEST1: ${{ needs.level-2-on-repo-1.outputs.TEST-1 }}
+      TEST2: ${{ env.TEST2 }}
     steps:
       - name: level-2 on repo-1 second job
         run: |
           echo "level-2 on repo-1 second job"
           echo "value of TEST1 is $TEST1"
+      - name: Env action result
+        run: |
+          echo "value of TEST2 is $TEST2"
