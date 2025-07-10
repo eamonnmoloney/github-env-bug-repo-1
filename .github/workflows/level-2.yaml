@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          repository: eamonnmoloney/github-env-bug-repo-1
+          ref: main
+
       - name: level-2 on repo-1
         run: |
           echo "level-2 on repo-1"
