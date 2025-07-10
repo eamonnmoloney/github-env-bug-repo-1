@@ -8,6 +8,8 @@ jobs:
       TEST-1: ${{ env.TEST1 }}
       TEST-2: ${{ env.TEST2 }}
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: level-2 on repo-1
         run: |
           echo "level-2 on repo-1"
