@@ -1,0 +1,8 @@
+on:
+  workflow_call:
+
+jobs:
+  level-2-on-repo-1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "level-2"
