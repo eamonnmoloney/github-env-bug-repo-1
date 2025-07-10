@@ -4,4 +4,4 @@ runs:
   - name: env-action
     shell: bash
     run: |
-        echo "TEST2=TEST 2 values" | tee -a $GITHUB_ENV
+        echo "TEST2=${GITHUB_WORKSPACE}/TEST 2 values" | tee -a $GITHUB_ENV
