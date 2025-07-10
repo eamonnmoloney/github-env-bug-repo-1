@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       TEST-1: ${{ env.TEST1 }}
+      TEST-2: ${{ env.TEST2 }}
     steps:
       - name: level-2 on repo-1
         run: |
@@ -20,7 +21,7 @@ jobs:
     needs: level-2-on-repo-1
     env:
       TEST1: ${{ needs.level-2-on-repo-1.outputs.TEST-1 }}
-      TEST2: ${{ env.TEST2 }}
+      TEST2: ${{ needs.level-2-on-repo-1.outputs.TEST-2 }}
     steps:
       - name: level-2 on repo-1 second job
         run: |
