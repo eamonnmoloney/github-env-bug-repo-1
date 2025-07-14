@@ -1,6 +1,16 @@
 on:
   workflow_dispatch:
+    inputs:
+      test:
+        description: 'test'
+        required: true
+        type: string
   workflow_call:
+    inputs:
+      test:
+        description: 'test'
+        required: true
+        type: string
 
 jobs:
   level-1-on-repo-1-initial-job:
@@ -10,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
       - name: level-1 on repo-1
         run: |
-          echo "level-1 on repo-1"
+          echo "level-1 on repo-1 ${{ inputs.test }}"
 
   level-1-on-repo-1:
     uses: ./.github/workflows/level-2.yaml
